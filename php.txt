@@ -1,0 +1,19 @@
+<?php
+include_once("dbhelp.php");
+if(isset($_POST['humidval']) && isset($_POST['tempval']) && isset($_POST['moist$
+)
+{
+$humidval = $_POST['humidval'];
+$tempval = $_POST['tempval'];
+$moistval = $_POST['moistval'];
+$date = date('Y-m-d');
+$time = date('h:i:s');
+
+//echo $humidval."<br/>".$tempval."<br/>".$moistval;
+
+$sql = "INSERT INTO alldata (humval, tempval, moistval,dateval,timeval)
+VALUES ('$humidval','$tempval','$moistval','$date','$time')";
+
+if (mysqli_query($conn, $sql)) {
+    echo "New record created successfully";
+} else {
